@@ -8,17 +8,29 @@ import { RegUserFormComponent } from './reg-user/reg-user-form/reg-user-form.com
 import { CarsComponent } from './cars/cars.component';
 import { HomeComponent } from './home/home.component';
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {
+    MdButtonModule, MdCheckboxModule, MdMenuModule, MdCardModule, MdToolbarModule,
+    MdIconModule
+} from '@angular/material';
+import { NavComponent } from './nav/nav.component';
+import 'hammerjs';
+
 @NgModule({
   declarations: [
     AppComponent,
     RegUserComponent,
     RegUserFormComponent,
     CarsComponent,
-    HomeComponent
+    HomeComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
-    appRouterModule
+    appRouterModule,
+    [MdButtonModule, MdCheckboxModule, MdMenuModule, MdCardModule, MdToolbarModule, MdIconModule],
+    [BrowserAnimationsModule],
+
   ],
   providers: [],
   bootstrap: [AppComponent]
