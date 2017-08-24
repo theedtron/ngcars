@@ -11,10 +11,12 @@ import { HomeComponent } from './home/home.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
     MdButtonModule, MdCheckboxModule, MdMenuModule, MdCardModule, MdToolbarModule,
-    MdIconModule
+    MdIconModule, MdListModule
 } from '@angular/material';
 import { NavComponent } from './nav/nav.component';
 import 'hammerjs';
+import {CarApiService} from "./car-api.service";
+import {HttpModule} from "@angular/http";
 
 @NgModule({
   declarations: [
@@ -28,11 +30,12 @@ import 'hammerjs';
   imports: [
     BrowserModule,
     appRouterModule,
-    [MdButtonModule, MdCheckboxModule, MdMenuModule, MdCardModule, MdToolbarModule, MdIconModule],
+    HttpModule,
+    [MdButtonModule, MdCheckboxModule, MdMenuModule, MdCardModule, MdToolbarModule, MdIconModule, MdListModule],
     [BrowserAnimationsModule],
 
   ],
-  providers: [],
+  providers: [CarApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
