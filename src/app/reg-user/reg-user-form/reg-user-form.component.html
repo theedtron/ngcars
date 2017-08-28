@@ -1,3 +1,42 @@
-<p>
-  reg-user-form works!
-</p>
+<h5>New User</h5>
+<div class="row">
+    <form [formGroup]="form" (ngSubmit)="save()">
+
+        <md-input-container class="example-full-width">
+            <input mdInput id="name" placeholder="Name" type="text" [(ngModel)]="user.name" formControlName="name" [class.invalid]="form.controls['name'].touched && !form.controls['name'].valid">
+            <md-hint>{{user.name}}</md-hint>
+        </md-input-container>
+
+        <md-input-container class="example-full-width">
+            <input mdInput id="email" placeholder="Email" type="email" [(ngModel)]="user.email" formControlName="email" [class.invalid]="form.controls['email'].touched && !form.controls['email'].valid">
+            <md-hint>{{user.email}}</md-hint>
+        </md-input-container>
+
+        <md-input-container class="example-full-width">
+            <input  mdInput id="phone" placeholder="Phone" type="text" [(ngModel)]="user.phone" formControlName="phone">
+            <md-hint>{{user.phone}}</md-hint>
+        </md-input-container>
+
+        <md-input-container class="example-full-width">
+            <input mdInput id="street" placeholder="Street" type="text" [(ngModel)]="user.street" formControlName="street" [class.invalid]="form.controls['address'].controls['street'].touched && !form.controls['address'].controls['street'].valid">
+            <md-hint>{{user.street}}</md-hint>
+        </md-input-container>
+
+        <md-input-container class="example-full-width">
+            <input mdInput id="suite" placeholder="Suite" type="text" [(ngModel)]="user.suite" formControlName="suite">
+            <md-hint>{{user.suite}}</md-hint>
+        </md-input-container>
+
+        <md-input-container class="example-full-width">
+            <input mdInput id="city" placeholder="City" type="text" [(ngModel)]="user.city" formControlName="city">
+            <md-hint>{{user.city}}</md-hint>
+        </md-input-container>
+
+        <md-input-container class="example-full-width">
+            <input mdInput id="zipcode" placeholder="Zipcode" type="text" [(ngModel)]="user.zipcode" formControlName="zipcode" [class.invalid]="form.controls['address'].controls['zipcode'].touched && !form.controls['address'].controls['zipcode'].valid">
+            <md-hint>{{user.zipcode}}</md-hint>
+        </md-input-container>
+
+        <button class="btn waves-effect waves-light" type="submit" [disabled]="!form.valid"> Submit<md-icon>send</md-icon></button>
+    </form>
+</div>

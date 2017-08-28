@@ -11,12 +11,15 @@ import { HomeComponent } from './home/home.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
     MdButtonModule, MdCheckboxModule, MdMenuModule, MdCardModule, MdToolbarModule,
-    MdIconModule, MdListModule
+    MdIconModule, MdListModule, MdTableModule, MdPaginatorModule, MdInputModule
 } from '@angular/material';
 import { NavComponent } from './nav/nav.component';
 import 'hammerjs';
-import {CarApiService} from "./car-api.service";
+import {CarApiService} from "./services/car-api.service";
 import {HttpModule} from "@angular/http";
+import {CdkTableModule} from "@angular/cdk";
+import {UsersApiService} from "./services/users-api.service";
+import {FormsModule, ReactiveFormsModule, FormGroup} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -30,12 +33,14 @@ import {HttpModule} from "@angular/http";
   imports: [
     BrowserModule,
     appRouterModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpModule,
-    [MdButtonModule, MdCheckboxModule, MdMenuModule, MdCardModule, MdToolbarModule, MdIconModule, MdListModule],
+    [MdButtonModule, MdCheckboxModule, MdMenuModule, MdCardModule, MdToolbarModule, MdIconModule, MdListModule, MdTableModule, CdkTableModule, MdPaginatorModule, MdInputModule],
     [BrowserAnimationsModule],
 
   ],
-  providers: [CarApiService],
+  providers: [CarApiService,UsersApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

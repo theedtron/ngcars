@@ -1,3 +1,78 @@
-<p>
-  reg-user works!
-</p>
+<md-card>
+    <md-card-header>
+        <md-card-title>Users</md-card-title>
+    </md-card-header>
+    <md-card-content>
+        <table>
+            <thead>
+            <tr>
+                <th data-field="name">ID</th>
+                <th data-field="name">Name</th>
+                <th data-field="name">Email</th>
+                <th data-field="name">Phone</th>
+                <th data-field="name">Company</th>
+                <th data-field="name">Actions</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr *ngFor="let users of all_users">
+                <td>{{ users?.id }}</td>
+                <td>{{ users?.name }}</td>
+                <td>{{users?.email}}</td>
+                <td>{{users?.phone}}</td>
+                <td>{{users?.company.name}}</td>
+                <td>
+                    <a>
+                        <md-icon class="example-icon" routerLink="/cars">edit</md-icon>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <!--<cdk-table>-->
+        <!--&lt;!&ndash; User name Definition &ndash;&gt;-->
+        <!--<ng-container cdkColumnDef="id">-->
+        <!--<cdk-header-cell *cdkHeaderCellDef> ID </cdk-header-cell>-->
+        <!--<cdk-cell *cdkCellDef="let all_users"> {{all_users.id}} </cdk-cell>-->
+        <!--</ng-container>-->
+
+        <!--&lt;!&ndash; Age Definition &ndash;&gt;-->
+        <!--<ng-container cdkColumnDef="name">-->
+        <!--<cdk-header-cell *cdkHeaderCellDef> Name </cdk-header-cell>-->
+        <!--<cdk-cell *cdkCellDef="let all_users"> {{all_users?.name}} </cdk-cell>-->
+        <!--</ng-container>-->
+
+        <!--&lt;!&ndash; Title Definition &ndash;&gt;-->
+        <!--<ng-container cdkColumnDef="email">-->
+        <!--<cdk-header-cell *cdkHeaderCellDef> Email </cdk-header-cell>-->
+        <!--<cdk-cell *cdkCellDef="let all_users"> {{all_users?.email}} </cdk-cell>-->
+        <!--</ng-container>-->
+
+        <!--<ng-container cdkColumnDef="phone">-->
+        <!--<cdk-header-cell *cdkHeaderCellDef> Phone </cdk-header-cell>-->
+        <!--<cdk-cell *cdkCellDef="let all_users"> {{all_users?.phone}} </cdk-cell>-->
+        <!--</ng-container>-->
+
+        <!--<ng-container cdkColumnDef="company">-->
+        <!--<cdk-header-cell *cdkHeaderCellDef> Company </cdk-header-cell>-->
+        <!--<cdk-cell *cdkCellDef="let all_users"> {{all_users?.company.name}} </cdk-cell>-->
+        <!--</ng-container>-->
+
+        <!--<ng-container cdkColumnDef="actions">-->
+        <!--<cdk-header-cell *cdkHeaderCellDef> Actions </cdk-header-cell>-->
+        <!--<cdk-cell *cdkCellDef="let all_users">-->
+        <!--<a>-->
+        <!--<md-icon class="example-icon" routerLink="/cars">edit</md-icon>-->
+        <!--</a>-->
+        <!--</cdk-cell>-->
+        <!--</ng-container>-->
+
+        <!--&lt;!&ndash; Header and Row Declarations &ndash;&gt;-->
+        <!--<cdk-header-row *cdkHeaderRowDef="['id', 'name', 'email', 'phone', 'company', 'actions']"></cdk-header-row>-->
+        <!--<cdk-row *cdkRowDef="let all_users; columns: ['id', 'name', 'email', 'phone', 'company', 'actions']"></cdk-row>-->
+        <!--</cdk-table>-->
+
+    </md-card-content>
+</md-card>
