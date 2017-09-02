@@ -1,65 +1,45 @@
 <md-card>
-    <md-card-header>
-        <md-card-title>Cars</md-card-title>
-    </md-card-header>
-    <md-card-content>
-        <table>
-            <thead>
-            <tr>
-                <th data-field="name">ID</th>
-                <th data-field="name">Title</th>
-                <th data-field="name">Body</th>
-                <th data-field="name">Actions</th>
-            </tr>
-            </thead>
+  <md-card-header>
+    <md-card-title>Cars</md-card-title>
+  </md-card-header>
+  <md-card-content>
 
-            <tbody>
-            <tr *ngFor="let cars of all_cars">
-                <td>{{ cars?.id }}</td>
-                <td>{{ cars?.title }}</td>
-                <td>{{cars?.body}}</td>
-                <td>
-                    <a>
-                        <md-icon class="example-icon" routerLink="/cars">edit</md-icon>
-                    </a>
-                </td>
-            </tr>
-            </tbody>
+    <div class="example-container mat-elevation-z8">
+      <cdk-table #table [dataSource]="dataSource" class="example-table">
+        <!-- User name Definition -->
+        <ng-container cdkColumnDef="id">
+          <cdk-header-cell *cdkHeaderCellDef class="example-header-cell"> ID </cdk-header-cell>
+          <cdk-cell *cdkCellDef="let row" class="example-cell"> {{row.id}} </cdk-cell>
+        </ng-container>
 
-            <!--<cdk-table>-->
-                <!--&lt;!&ndash; User name Definition &ndash;&gt;-->
-                <!--<ng-container cdkColumnDef="id">-->
-                    <!--<cdk-header-cell *cdkHeaderCellDef> ID </cdk-header-cell>-->
-                    <!--<cdk-cell *cdkCellDef="let cars"> {{cars?.id}} </cdk-cell>-->
-                <!--</ng-container>-->
+        <!-- Age Definition -->
+        <ng-container cdkColumnDef="title">
+          <cdk-header-cell *cdkHeaderCellDef class="example-header-cell"> Title </cdk-header-cell>
+          <cdk-cell *cdkCellDef="let row" class="example-cell"> {{row.title}} </cdk-cell>
+        </ng-container>
 
-                <!--&lt;!&ndash; Age Definition &ndash;&gt;-->
-                <!--<ng-container cdkColumnDef="title">-->
-                    <!--<cdk-header-cell *cdkHeaderCellDef> Title </cdk-header-cell>-->
-                    <!--<cdk-cell *cdkCellDef="let cars"> {{cars?.title}} </cdk-cell>-->
-                <!--</ng-container>-->
+        <!-- Title Definition -->
+        <ng-container cdkColumnDef="body">
+          <cdk-header-cell *cdkHeaderCellDef class="example-header-cell"> Body </cdk-header-cell>
+          <cdk-cell *cdkCellDef="let row" class="example-cell"> {{row.body}} </cdk-cell>
+        </ng-container>
 
-                <!--&lt;!&ndash; Title Definition &ndash;&gt;-->
-                <!--<ng-container cdkColumnDef="body">-->
-                    <!--<cdk-header-cell *cdkHeaderCellDef> Body </cdk-header-cell>-->
-                    <!--<cdk-cell *cdkCellDef="let cars"> {{cars?.body}} </cdk-cell>-->
-                <!--</ng-container>-->
+        <ng-container cdkColumnDef="actions">
+          <cdk-header-cell *cdkHeaderCellDef class="example-header-cell"> Actions </cdk-header-cell>
+          <cdk-cell *cdkCellDef="let row" class="example-cell">
+            <a>
+              <md-icon class="example-icon" routerLink="/cars">edit</md-icon>
+            </a>
+          </cdk-cell>
+        </ng-container>
 
-                <!--<ng-container cdkColumnDef="actions">-->
-                    <!--<cdk-header-cell *cdkHeaderCellDef> Actions </cdk-header-cell>-->
-                    <!--<cdk-cell *cdkCellDef="let cars">-->
-                        <!--<a>-->
-                            <!--<md-icon class="example-icon" routerLink="/cars">edit</md-icon>-->
-                        <!--</a>-->
-                    <!--</cdk-cell>-->
-                <!--</ng-container>-->
+        <!-- Header and Row Declarations -->
+        <cdk-header-row *cdkHeaderRowDef="['id', 'title', 'body', 'actions']" class="example-header-row"></cdk-header-row>
+        <cdk-row *cdkRowDef="let row; columns: ['id', 'title', 'body', 'actions'];" class="example-row"></cdk-row>
+      </cdk-table>
 
-                <!--&lt;!&ndash; Header and Row Declarations &ndash;&gt;-->
-                <!--<cdk-header-row *cdkHeaderRowDef="['id', 'title', 'body', 'actions']"></cdk-header-row>-->
-                <!--<cdk-row *cdkRowDef="let cars; columns: ['id', 'title', 'body', 'actions']"></cdk-row>-->
-            <!--</cdk-table>-->
+    </div>
 
 
-        </table>
-    </md-card-content>
+  </md-card-content>
 </md-card>

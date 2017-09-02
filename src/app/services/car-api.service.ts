@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {Http} from "@angular/http";
 import 'rxjs/add/operator/map';
+import {Observable} from "rxjs";
+import {CarsModel} from "../models/carsModel";
 // import {ApiRoutes} from "./models/apiRoutes";
 
 @Injectable()
@@ -10,8 +12,9 @@ export class CarApiService {
 
     constructor(public http: Http) { }
 
-    getCars(){
+    getCars(): Observable<CarsModel[]>{
         return this.http.get(this.resource + 'posts')
             .map(res => res.json())
+            .catch(err => Observable.throw(err));
     }
 }

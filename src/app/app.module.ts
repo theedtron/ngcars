@@ -11,7 +11,7 @@ import { HomeComponent } from './home/home.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
     MdButtonModule, MdCheckboxModule, MdMenuModule, MdCardModule, MdToolbarModule,
-    MdIconModule, MdListModule, MdTableModule, MdPaginatorModule, MdInputModule
+    MdIconModule, MdListModule, MdTableModule, MdPaginatorModule, MdInputModule, MdSidenavModule
 } from '@angular/material';
 import { NavComponent } from './nav/nav.component';
 import 'hammerjs';
@@ -20,6 +20,8 @@ import {HttpModule} from "@angular/http";
 import {CdkTableModule} from "@angular/cdk";
 import {UsersApiService} from "./services/users-api.service";
 import {FormsModule, ReactiveFormsModule, FormGroup} from "@angular/forms";
+import {FlexLayoutModule} from "@angular/flex-layout";
+import { CdkexamleComponent } from './cdkexamle/cdkexamle.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import {FormsModule, ReactiveFormsModule, FormGroup} from "@angular/forms";
     RegUserFormComponent,
     CarsComponent,
     HomeComponent,
-    NavComponent
+    NavComponent,
+    CdkexamleComponent
   ],
   imports: [
     BrowserModule,
@@ -36,8 +39,9 @@ import {FormsModule, ReactiveFormsModule, FormGroup} from "@angular/forms";
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    [MdButtonModule, MdCheckboxModule, MdMenuModule, MdCardModule, MdToolbarModule, MdIconModule, MdListModule, MdTableModule, CdkTableModule, MdPaginatorModule, MdInputModule],
+    [MdButtonModule, MdCheckboxModule, MdMenuModule, MdCardModule, MdToolbarModule, MdIconModule, MdListModule, MdTableModule, CdkTableModule, MdPaginatorModule, MdInputModule,MdSidenavModule],
     [BrowserAnimationsModule],
+    FlexLayoutModule
 
   ],
   providers: [CarApiService,UsersApiService],
