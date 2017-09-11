@@ -11,6 +11,16 @@ import {Router} from "@angular/router";
 export class RegUserFormComponent implements OnInit {
 
   private form : FormGroup;
+  user: any = {
+      name: '',
+      email: '',
+      phone: '',
+      address: '',
+      street: '',
+      suite: '',
+      city: '',
+      zipcode: ''
+  };
 
   constructor(public formBuilder: FormBuilder, public userApi: UsersApiService, public router: Router) {
     this.form = formBuilder.group({
@@ -21,7 +31,7 @@ export class RegUserFormComponent implements OnInit {
       street: ['', Validators.minLength(3)],
       suite: [],
       city: ['', Validators.maxLength(30)],
-      zipcode: ['', Validators.pattern('^([0-9]){5}([-])([0-9]){4}$')]
+      zipcode: []
 
     });
   }
@@ -33,6 +43,8 @@ export class RegUserFormComponent implements OnInit {
     var res;
     var userval = this.form.value;
     res = this.userApi.addUser(userval);
+
+    console.log(res);
 
     res.subscribe(data => this.router.navigate(['regs']));
   }

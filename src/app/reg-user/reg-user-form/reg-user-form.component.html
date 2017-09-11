@@ -3,12 +3,12 @@
     <form [formGroup]="form" (ngSubmit)="save()">
 
         <md-input-container class="example-full-width">
-            <input mdInput id="name" placeholder="Name" type="text" [(ngModel)]="user.name" formControlName="name" [class.invalid]="form.controls['name'].touched && !form.controls['name'].valid">
+            <input mdInput id="name" placeholder="Name" type="text" [(ngModel)]="user.name" formControlName="name">
             <md-hint>{{user.name}}</md-hint>
         </md-input-container>
 
         <md-input-container class="example-full-width">
-            <input mdInput id="email" placeholder="Email" type="email" [(ngModel)]="user.email" formControlName="email" [class.invalid]="form.controls['email'].touched && !form.controls['email'].valid">
+            <input mdInput id="email" placeholder="Email" type="email" [(ngModel)]="user.email" formControlName="email">
             <md-hint>{{user.email}}</md-hint>
         </md-input-container>
 
@@ -18,7 +18,7 @@
         </md-input-container>
 
         <md-input-container class="example-full-width">
-            <input mdInput id="street" placeholder="Street" type="text" [(ngModel)]="user.street" formControlName="street" [class.invalid]="form.controls['address'].controls['street'].touched && !form.controls['address'].controls['street'].valid">
+            <input mdInput id="street" placeholder="Street" type="text" [(ngModel)]="user.street" formControlName="street">
             <md-hint>{{user.street}}</md-hint>
         </md-input-container>
 
@@ -33,7 +33,7 @@
         </md-input-container>
 
         <md-input-container class="example-full-width">
-            <input mdInput id="zipcode" placeholder="Zipcode" type="text" [(ngModel)]="user.zipcode" formControlName="zipcode" [class.invalid]="form.controls['address'].controls['zipcode'].touched && !form.controls['address'].controls['zipcode'].valid">
+            <input mdInput id="zipcode" placeholder="Zipcode" type="text" [(ngModel)]="user.zipcode" formControlName="zipcode">
             <md-hint>{{user.zipcode}}</md-hint>
         </md-input-container>
 
